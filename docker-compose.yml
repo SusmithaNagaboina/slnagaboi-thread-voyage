@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres-db:
+    image: postgres:16-alpine
+    container_name: crochet_enterprise_db
+    environment:
+      POSTGRES_DB: crochet_shop
+      POSTGRES_USER: shop_admin
+      POSTGRES_PASSWORD: super_secure_password_123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
